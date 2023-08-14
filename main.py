@@ -1,5 +1,6 @@
 from fetchposition import run
-from macroloop import macro
+from macroloop import magicLevel
+from macroloop import distance
 file_name = "positions.txt"
 import time
 
@@ -7,15 +8,19 @@ import time
 
 def show_menu():
   print("Tibia macro")
-  print("1. Run macro")
-  print("2. Define mouse positions")
+  print("1. Magic Level")
+  print("2. Distance")
+  print("3. Define mouse positions")
   print("3. Exit")
 
 def option_1():
-  macro()
-
+  magicLevel()
 
 def option_2():
+  distance()
+
+
+def option_3():
   #clears the file
   with open(file_name, "w"):
     pass
@@ -29,6 +34,9 @@ def option_2():
   print("Click on your life ring.")
   run()
   time.sleep(0.1)
+  print("Click on your ammo / used for distance skill training.")
+  run()
+  time.sleep(0.1)
 
 def main():
   while True:
@@ -40,6 +48,8 @@ def main():
     elif choice == '2':
       option_2()
     elif choice == '3':
+      option_3()
+    elif choice == '4':
       print("Exiting...")
       break
     else:
