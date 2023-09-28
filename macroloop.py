@@ -4,6 +4,8 @@ file_name = "positions.txt"
 
 import time
 import random
+import json
+
 
 mouse = mouse_controller()
 keyboard = keyboard_controller()

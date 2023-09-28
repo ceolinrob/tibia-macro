@@ -1,16 +1,16 @@
 from pynput.mouse import Button, Controller, Listener
 import time
-file_name = "positions.txt"
+file_name = "positions.json"
 mouse = Controller()
 
-def run(): 
+def run(data, attr): 
   def click(x, y, button, pressed):
 
-      with open(file_name, "a") as file:
-        file.write(format(mouse.position))
-        file.write('\n')
+    data[attr] = format(mouse.position)
+    with open(file_name, "w") as file:
+      json.dump(data, file, indent=4)
 
-      listener.stop()
+    listener.stop()
 
   with Listener(on_click=click) as listener:
       listener.join()

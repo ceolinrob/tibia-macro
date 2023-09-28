@@ -1,8 +1,9 @@
 from fetchposition import run
 from macroloop import magicLevel
 from macroloop import distance
-file_name = "positions.txt"
+file_name = "positions.json"
 import time
+import json
 
 
 
@@ -22,21 +23,22 @@ def option_2():
 
 def option_3():
   #clears the file
-  with open(file_name, "w"):
-    pass
+  data = {}
 
   print("Click on food.")
-  run()
+  run(data, 'food')
   time.sleep(0.1)
   print("Click on your spell.")
-  run()
+  run(data, 'spell')
   time.sleep(0.1)
   print("Click on your life ring.")
-  run()
+  run(data, 'life_ring')
   time.sleep(0.1)
   print("Click on your ammo / used for distance skill training.")
-  run()
+  run(data, 'ammo')
   time.sleep(0.1)
+  print("Click on your ring of healing.")
+  run(data, 'ring_of_healing')
 
 def main():
   while True:
